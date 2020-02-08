@@ -4,22 +4,22 @@ def guess(s, b):
   return int((s + b) / 2)
   
 def relation_correct(g, u, a):
-  if a in ['<', "smaller"] and not (g > u):
+  if a in ['<', 'smaller', 'less'] and not (g > u):
     return False
-  elif a in ['>', "bigger"] and not (g < u):
+  elif a in ['>', 'bigger', 'more'] and not (g < u):
     return False
   return True
   
 s = 1
 b = 100
-answers = ['<', "smaller", '>', "bigger", 'yes']
+answers = ['<', "smaller", 'less', '>', "bigger", 'more', 'yes']
 won = False
 replies = []
 guesses = []
 
 print("Think of a number from 1-100 (inclusive).\nI will ask you seven times\n\n\
-If YOUR number is SMALLER than\nwhat I guess, print '<' or 'smaller'.\n\n\
-If YOUR number is BIGGER than\nwhat I guess, print '>' or 'bigger'.\n\n\
+If YOUR number is SMALLER than\nwhat I guess, print '<', 'smaller', or 'less'.\n\n\
+If YOUR number is BIGGER than\nwhat I guess, print '>', 'bigger', or 'more'.\n\n\
 If my guess is correct, print 'yes'.")
 
 for i in range(1, 8):
@@ -30,9 +30,9 @@ for i in range(1, 8):
   while answer not in answers:
     answer = input("I do not understand that! ")
   replies.append(answer)
-  if answer in ['<', "smaller"]:
+  if answer in ['<', 'smaller', 'less']:
     b = guess(s, b)
-  elif answer in ['>', "bigger"]:
+  elif answer in ['>', 'bigger', 'more']:
     s = guess(s, b)
   else:
     print(f"I knew it! It took {i} tries.")
