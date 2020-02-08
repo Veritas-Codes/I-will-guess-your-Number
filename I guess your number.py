@@ -2,22 +2,22 @@ from random import randrange as rr
 
 def guess(s, b):
   return int((s + b) / 2)
-  
+
 def relation_correct(g, u, a):
   if a in ['<', "smaller"] and not (g > u):
     return False
   elif a in ['>', "bigger"] and not (g < u):
     return False
   return True
-  
+
 s = 1
-b = 100
+b = 1000
 answers = ['<', "smaller", '>', "bigger", 'yes']
 won = False
 replies = []
 guesses = []
 
-print("Think of a number from 1-100 (inclusive).\nI will ask you seven times\n\n\
+print("Think of a number from 1-1000 (inclusive).\nI will ask you seven times\n\n\
 If YOUR number is SMALLER than\nwhat I guess, print '<' or 'smaller'.\n\n\
 If YOUR number is BIGGER than\nwhat I guess, print '>' or 'bigger'.\n\n\
 If my guess is correct, print 'yes'.")
@@ -42,7 +42,7 @@ for i in range(1, 8):
 if not won:
   usr_num = int(input("What number did you think of? "))
   for i in range(7):
- 
+
     if i == 0:
       ind_count = "1st"
     elif i == 1:
@@ -54,5 +54,3 @@ if not won:
     if not relation_correct(guesses[i], usr_num, replies[i]):
       print(f"You did not answer the {ind_count} question\ncorrectly!")
       break
-  
-    
